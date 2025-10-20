@@ -2,17 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
-# class Profile(models.Model):
-#     ROLE_CHICES=[
-#         ('donor','Donor')
-#         ('receiver','receiver')
-#     ]
-#     user=models.OneToOneField(User,on_delete=models.CASCADE)
-#     role=models.CharField(max_length=20,choices=ROLE_CHICES)
-#     blood_group=models.CharField(max_length=5)
-#     phone=models.CharField(max_length=15)
-#     def __str__(self):
-#         return self.user.username
+
 class donors(models.Model):
     BLOOD_GROUPS=[
         ("A+","A+"),
