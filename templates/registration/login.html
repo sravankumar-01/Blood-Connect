@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static "donorreg.css" %}" >
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+   {% load bootstrap5 %}
+   {% bootstrap_css %}
+   {% bootstrap_javascript %}
+
+</head>
+<body>
+  
+
+<div class=" row d-flex flex-row justify-content-center ">
+<div class="col-12 col-md-6">
+<div class="home-card p-4  shadow mt-5">
+    
+    <h1 class=" text-center m-3 mb-5"> login page</h1>
+     {%if form.non_field_errors %}
+        <div class="alert alert-danger alert-dismissible  show " id="error-message" role="alert" >
+            {% for errors in form.non_field_errors%}
+            {{errors}}
+          
+         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+           
+           {%endfor%}
+            
+            </div>
+        {% endif %}
+    <form method="POST" >
+      
+       <input type="text" name="username" value="{{forms.username}}" placeholder="username" class="input-style"> <br>
+       <div id="error-message">{{form.username.errors}}</div>
+    
+        <input type="password" name="password" value="{{forms.password}}" placeholder="password" class="input-style"> <br>
+       <div id='error-message'>{{form.password.errors}}</div>
+        <button class="btn btn-success m-3" type="submit"> login </button><br>
+        <span>Don't have an account </span><a href="/signup" class="signup"> signup</a>
+          {%csrf_token%}
+        
+     </form>   
+    </div>
+
+    </div>
+</div>
+</body>
+</html>

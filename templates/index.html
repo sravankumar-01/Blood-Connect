@@ -1,0 +1,63 @@
+
+{%extends 'header.html'%}
+{%load static%}
+
+
+{%block extra_css%}
+<link rel="stylesheet" href="{%static "donorreg.css" %}">
+{%endblock%}
+
+{%block content%}
+<div class="container-home">
+  
+
+    <h1 class="text-center pt-5"> Our Services</h1>
+    <div class="row d-flex flex-row justify-content-center">
+    
+    <div class=" col-6 col-md-3 homecard shadow m-2">
+   
+      <a href="/availablerequests"><button id="card-btn"> Available Requests</button> </a>    
+    </div>
+    <div class=" col-6 col-md-3 homecard shadow m-2">
+       <a href="/request"> <button id="card-btn"> Request For 🩸Blood</button></a> 
+    </div>
+    <div class="col-6 col-md-3 homecard shadow m-2">
+        <a href="/donorlogin" > <button id="card-btn">Be A Donor</button></a>
+    </div>
+    
+    </div>
+
+    <div class="container mt-5">
+         <h1> Learn About Donation</h1>
+      <p>Select your blood type:</p>
+      <div class="row d-flex flex-row ">
+       <div class="col-12 col-md-12  about-donation">
+        <button class="bg-button" id="bg-A+" data-give="A+,AB+" data-take="A+,A-,O+,O-" >A+</button>
+        
+        <button class="bg-button" data-give="A+,A-,AB+,AB-" data-take="A+,O-" >A-</button>
+        <button class="bg-button" data-give="B+,AB+" data-take="B+,B-,O+,O-"  id="bg-B+">B+</button>
+        <button class="bg-button" data-give="B+,B-,AB+,AB-" data-take="B-,O-" id="bg-B-">B-</button>
+           
+           <button class="bg-button" data-take="A+,A-,B+,B-,AB+,AB-,O+,O-" data-give="AB+" id="bg-AB+">AB+</button>
+            <button class="bg-button" data-take="A-,B-,AB-,O-"  data-give="AB+,AB-" id="bg-AB-">AB-</button>
+           <button class="bg-button" data-take="O+,O-" data-give="A+,B+,AB+,O+" id="O+">O+</button>
+            <button class="bg-button" data-take="O-" data-give="A+,A-,B+,B-,AB+,AB-,O+,O-"  id="O-">O-</button>
+           
+          </div>
+ 
+        </div>
+        <div class="row">
+          <div class="col-12 col-md-7 about-card1">
+            <h3 id="text">  you can take blood from:</h3>
+            <h1 id="takeBloodGroups"> </h1>
+          </div>
+           <div class="col-12 col-md-7 about-card2">
+            <h3  > you can Give to:</h3>
+            <h1 id="giveBloodGroups"></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+<script type="text/javascript" src="{%static "js/script.js" %}" ></script>
+ 
+{%endblock%}

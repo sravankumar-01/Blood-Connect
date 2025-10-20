@@ -1,0 +1,29 @@
+
+{%extends 'header.html'%}
+{%load static%}
+
+
+     {%block extra_css%}<link rel="stylesheet" href="{%static "donorreg.css" %}">{%endblock%}
+  
+
+  {%block content%}
+ 
+    <div class="sb-container pt-5">
+    <h1 class="r-heading">Update Blood🩸 Request</h1>
+    <div class="formpage">
+        
+    <form method="POST">
+       
+        <table class="searchblood-table">
+        {{form.as_table}}
+        </table>
+       
+       <div><button class="btn btn-danger register-button m-3 " type="submit">UPDATE</button></div>
+        {%csrf_token%}
+        
+        
+    </form>
+    </div>
+    </div>
+  {%endblock content%}
+

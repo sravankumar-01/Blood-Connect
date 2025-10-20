@@ -1,0 +1,69 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static "donorreg.css" %}" >
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    {% load bootstrap5 %}
+   {% bootstrap_css %}
+   {% bootstrap_javascript %}
+
+</head>
+<body>
+  
+
+<div class="d-flex flex-row justify-content-center ">
+
+<div class="home-card p-4  shadow mt-5">
+    
+    <h1 class=" text-center m-3 mb-5"> signup page</h1>
+    
+    <form method="POST" >
+     <div>
+        {{forms.username.label_tag}}<br>
+        {{forms.username}}
+        {{forms.username.errors}}
+      
+     </div>
+      <div>
+        {{forms.password1.label_tag}}<br>
+        {{forms.password1}}
+        {{forms.password1.errors}}
+     </div>
+      <div>
+        {{forms.password2.label_tag}}<br>
+        {{forms.password2}}
+        {{forms.password2.errors}}
+     </div>
+     
+        <button class="btn btn-success m-3" type="submit">signup</button><br>
+          {%csrf_token%}
+
+
+         
+        </form>
+        </div>
+        </div>
+    
+    
+
+       
+
+       
+        
+         
+   
+ 
+
+      
+   
+    
+   
+    
+
+    
+</body>
+</html>

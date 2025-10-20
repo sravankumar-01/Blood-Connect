@@ -1,0 +1,67 @@
+
+{%extends 'header.html'%}
+ {%load static%}
+{%block extra_css%}
+<link rel="stylesheet" href="{%static "donorreg.css" %}">
+{%endblock%}
+{%block content%}
+  
+
+  {%if messages%}
+  {%for i in messages%}
+  {{i}}
+  {%endfor%}
+  {%endif%}
+  {%if requests%}
+  <div class="row pt-5">
+
+  <div class="col-12 col-md-8">
+  <h3>🎉welcome!<span class="donor-name"> {{donor.full_name}}</span> your successful donations 🩸</h3>
+ 
+  <div class="donordashboard-table">
+    <table  border="1">
+        <tr>
+            <th>S.no</th>
+            <th>patient_name</th>
+            <th> Blood Group</th>
+            <th>Reason</th>
+            <th>Date</th>
+           
+        </tr>
+        {%for i in requests %}
+    
+      
+       
+        <tr>
+            <td> {{forloop.counter}}</td>
+            <td>{{i.patient_name}}</td>
+            <td>{{i.Blood_Group}}</td>
+            <td>{{i.Reason}}</td>
+            <td>{{i.created_at| date:"d/M/Y"}} </td>
+           
+        </tr>
+     
+      {%endfor%}
+    </table>
+     </div>
+    {%else%}
+    <div class="text-center">
+ 
+    <h2 class="pt-5" > No donations yet</h2>
+     <img  src="{%static "media/quoteimage.jpg"%}" alt="image not found" />
+    <h4> Be a donor <a href="{%url 'donorlogin'%}"> <button class="btn btn-primary">Register</button> </a></h4>
+    </div>
+ 
+    {%endif%}
+    </div>
+    </div>
+  </div>
+    {%endblock%}
+  
+       
+   
+
+   
+ 
+</body>
+</html>

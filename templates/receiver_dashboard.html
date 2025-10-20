@@ -1,0 +1,66 @@
+
+
+
+{%extends 'header.html'%}
+{%load static%}
+
+ {%block extra_css%}
+    <link rel="stylesheet" href="{%static "donorreg.css" %}">
+    {%endblock%}
+ 
+    {%block content%}
+    <div class="d-flex flex-column justify-content-end">
+   <div class="pt-5 mt-3 details-table  ">
+    {%if requests%}
+    <table class="">
+        <tr class="table-heading">
+       <th>S.no</th>
+        <th> Name</th>
+        <th>Blood_Group</th>
+        <th> Reason</th>
+
+        <th>Requested_date</th>
+        <th> Contact</th>
+        <th>Status</th>
+        <th>Donor approved</th>
+        <th>Blood_Group</th>
+        <th>City</th>
+        <th>Contact</th>
+        <th>action</th>
+        
+        </tr>
+
+    {%for i in requests%}
+    <tr>
+       <td>{{forloop.counter}}</td>
+      <td>{{i.patient_name}} </td>
+        <td>{{i.Blood_Group}}</td>
+        <td>{{i.Reason}}</td>
+ 
+     
+        <td>{{i.created_at | date:"d/M/Y"}}</td>
+        <td>{{i.Contact}}</td>
+        {%if i.status == "approved" %}
+        <td style="color: green; font-weight: 700;">✅{{i.status}}</td>
+        {%else%}
+        <td style="color:rgb(242, 242, 31); font-weight: 700;">⌛{{i.status}}</td>
+       
+        {%endif%}
+        <td>{{i.donor.full_name}}</td>
+        <td> {{i.donor.Blood_Group}}</td>
+         <td> {{i.donor.city}}</td>
+         <td> {{i.donor.contact}}</td>
+        <td> <a href="/deletereq/{{i.id}}" > <button class="btn-danger action-button"> Delete</button> </a> 
+         <a href="/updatereq/{{i.id}}" > <button class="btn-primary action-button"> Update</button> </a> 
+        </td>
+      
+    </tr>
+      
+    {%endfor%}
+</table>
+{%else%}
+ <h3> you don't have any requests</h3>
+ <h2>Request for blood </h2> <a href="/request"> <button class="btn btn-danger"> search for blood</button></a>
+ {%endif%}
+</div>
+{%endblock%}

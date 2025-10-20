@@ -1,0 +1,40 @@
+
+{%extends 'header.html'%}
+{%load static%}
+
+{%block extra_css%}
+<link rel="stylesheet" href="{%static "donorreg.css" %}">
+{%endblock%}
+ {%block content %}
+
+     <div class="registration-page pt-3" >
+    <h1 class="r-heading"> DONOR REGISTRATION</h1>
+    <h3 class="caption "><mark>Be Proud. Be a Donor❤️</mark></h3>
+   
+    <div class="formpage">
+     
+      <form method="POST">
+       
+        <table class="register-table">
+        {{form.as_table}}
+       </table>
+     {%if form.errors%}
+      
+       <h1 style="color:red">{{errors}}</h1>
+  
+      {%endif%}
+      
+
+
+
+    
+   <button class="btn-danger register-button mt-4" type="submit"> Register </button>
+   
+  
+     
+   {% csrf_token%}
+    </form>
+    </div>
+    </div>
+
+{%endblock%}
